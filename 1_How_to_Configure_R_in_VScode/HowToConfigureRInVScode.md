@@ -12,7 +12,7 @@ paginate: true
 ## 1 安装 R 与 VS Code
 
 **1.1 安装 VS Code**
-- VS Code的安装和其他软件安装一样，到官网下载安装包后打开点击安装即可，注意选择对应的操作相同版本。
+- VS Code的安装和其他软件安装一样，到官网下载安装包后打开点击安装即可，注意选择对应的版本。
 
 - 地址：<https://code.visualstudio.com/>
 
@@ -56,18 +56,13 @@ install.packages("httpgd")
 **1. 安装 R 插件**
 这是在 VS Code 运行 R 语言的核心插件
 
-![image w:100 h:100](https://github.com/Wsy122/Presentation/blob/master/1_How_to_Configure_R_in_VScode/images/84f44327acc0a1b2cac39b6d558d91c.png?raw=true)
-  
-
----
 **2. 安装 R Debugger 插件**
-用于对R包调试
-
-**3. 安装 R LSP Client 插件**
-R LSP Client 插件依托于 Language Server Protocol，LSP 可以使编程语言在编辑器上得到语法支持。提供自动补全，代码格式化，帮助文档等功能
+用于对 R 包调试
 
 **安装方法**
 打开插件市场 (Extensions)，搜索相应插件，点击 "install" 即可安装
+
+![image](C:\Users\HW\Desktop\TechniqueSharing\1_How_to_Configure_R_in_VScode\images\84f44327acc0a1b2cac39b6d558d91c.png)
 
 ---
 
@@ -75,23 +70,30 @@ R LSP Client 插件依托于 Language Server Protocol，LSP 可以使编程语�
 
 - 打开 VS code 设置
     - 输入 r.rpath 根据系统版本输入 R.exe 所在的路径
+  ![image]()
     - 输入 r.plot.usehttpgd，勾选
-- 注：若不追求终端语法高亮显示和输出的美观程度，到此就基本配置好 R 的运行环境
-- 以下为配置 radian 
+  ![image]()
+
+---
+
+**注:** 若不追求终端语法高亮显示和输出的美观程度，到此就基本配置好 R 的运行环境
+
+**以下为配置 radian**
   
 ---
 
-**radian**
+### radian 是什么？
 - 官网称 radian 是一款21世纪的R语言编辑器，纠正了官方 R 终端的许多缺陷，并支持诸如语法高亮和自动补全等许多功能。
 - 说明：
   - 不安装也能运行 R
-  - 安装后可能会出现终端乱码的情况（radian 编码和 R 原生编码冲突），如果出现这种情况，可以尝试设置 radian 的 language，具体教程见：<https://blog.csdn.net/qq_56883244/article/details/129528093>
+  - 安装后可能会出现终端乱码的情况（radian 编码和 R 原生编码冲突），如果出现这种情况，可以尝试设置 radian 的 language，**具体教程见：**<https://blog.csdn.net/qq_56883244/article/details/129528093>
   - radian 无法在 VS Code 插件市场找到，需要先自行下载后在 VS Code 中配置，并且需要 Python 环境
 
 ---
 
 1. 安装
-- 这里使用 pip 包管理器下载：`pip install radian`
+- 这里使用 pip 包管理器下载：`pip install radian` 或 `pip install -U radian`
+
 - 安装完成之后，输入radian，进入下面界面，说明安装成功：
 
 ![image](https://mmbiz.qpic.cn/mmbiz_png/XEicwVA08daAs8lRYDzvFG4v3hbbFbVKYicEqZMTnWQbic9Piah0ib2NAzgHr6pHSxesFqLcCIMSoecMbYnibibtdGrEw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -108,9 +110,9 @@ R LSP Client 插件依托于 Language Server Protocol，LSP 可以使编程语�
   - 输入 r.rterm，在 "R›Rterm"，根据系统版本输入 radina.exe 的完整路径
   - 输入 r.br ，选中 Bracketed Paste 
     - 不勾选，Radian 不会启用
-  - 输入 r.rterm.option，删除--no-save,--no-restore，添加--no-site-file
-    - 原因见 <https://sspai.com/post/47386>
-  - 输入r.sessionWatcher，勾选
+  - 输入 r.rterm.option，删除 --no-save, --no-restore，添加 --no-site-file
+    - 原因见: <https://sspai.com/post/47386>
+  - 输入 r.sessionWatcher，勾选
     - 可以实现绘图IDE，查看dataframe。如果想用原生绘图，取消勾选即可。
 
 ---
@@ -118,7 +120,7 @@ R LSP Client 插件依托于 Language Server Protocol，LSP 可以使编程语�
 ## 4 修改快捷键
 
 1. 在Rstudio中，使用 "alt+-" 组合键可以输出 "<- "，使用 "ctrl+shift+m" 组合键可以输出 "%>%" 。在 VS Code，我们需要对快捷键进行配置后才可以输出。
-2. 使用 "Ctrl+Shift+P" 打开命令面板，输入"open keyboard shortcuts (JSON)" 打开快捷键配置文件 keybindings.json：
+2. 打开命令面板 (Ctrl+Shift+P)，输入"open keyboard shortcuts (JSON)" 打开快捷键配置文件 keybindings.json：
   ![image w:700](https://pic3.zhimg.com/v2-8fb04c11c052b546d7eea449036e5b44_1440w.jpg)
 
   ---
@@ -145,9 +147,38 @@ R LSP Client 插件依托于 Language Server Protocol，LSP 可以使编程语�
 ```
 ---
 
+**如图**
+
+
+---
+
 ## 5 可能遇到的问题
 
-1. radian安装后无法查看路径，如
+1. radian安装后无法查看路径，如:
+```
+C:\Users\HW>where.exe radian
+信息: 用提供的模式无法找到文件。
+```
+- 原因：
+```
+WARNING: The script radian.exe is installed in 'C:\Users\HW\AppData\Roaming\Python\Python312\Scripts' which is not on PATH.
+```
+脚本所在的目录不在系统的 PATH 环境变量中
+
+---
+
+- 解决方法：把目录路径加入环境变量中
+  - 打开环境变量配置界面
+  - 点击 "系统变量" 中的 "Path"，点击 "编辑"
+  - 点击 "新建"，输入 radian 所在的目录路径，点击 "确定" (系统属性的 "确认" 也要点)
+![image]()
+
+---
+
+
+2. 关于安装 **R LSP Client** 插件
+   - 很多教程都提到到了这个 VS Code插件，其功能在于可以获得更好的自动补全、查看帮助文档等体验。
+   - 但这个现在在插件商店找不到了，已经合并到了 R 的主要插件中。不过要在 R 引入 languageserver 包
 
 
 ---
